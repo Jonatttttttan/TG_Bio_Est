@@ -14,7 +14,7 @@ X = list(filter(lambda x: x.split("-")[0] in list(map(lambda u: u.split("-")[0],
 
 
 semana = list(map(lambda x: x.split("-")[0], y_))
-casos = list(map(lambda x: int("-".join(x.split("-")[1:])), X))
+casos = list(map(lambda x: int("-".join(x.split("-")[1:])), X))[::-1]
 semana = [ "Sem - " + str(x) for x in range(1, len(semana)+1)]
 print(semana)
 print(type(casos[0]))
@@ -26,12 +26,13 @@ ax.plot(semana, casos, marker='o', linewidth=2)
 
 
 
-ax.set_xlabel("Semana do ano 2025")
-ax.set_ylabel("Casos de dengue")
+ax.set_xlabel("Semana do ano 2025", fontsize=14)
+ax.set_ylabel("Casos de dengue", fontsize=8)
 ax.set_title("Casos X Semana")
 ax.grid(True, linestyle="--", alpha=0.4)
 plt.xticks(rotation=45) # Deixa labels na diagonal
 fig.tight_layout()
+ax.tick_params(axis="y", labelsize=14)
 plt.show()
 
 
